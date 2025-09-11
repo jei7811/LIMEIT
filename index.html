@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>자기소개 | 홍길동</title>
+  <meta name="description" content="간단한 자기소개 페이지" />
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --chip: #eef2ff;
+      --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f1a;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #8b5cf6;
+        --chip: #1f2937;
+        --border: #111827;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, \"Helvetica Neue\", Arial, \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,.12), transparent 60%),
+                  radial-gradient(800px 400px at 120% 10%, rgba(16,185,129,.10), transparent 40%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 960px; margin: 40px auto; padding: 0 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    header {
+      display: grid; grid-template-columns: 112px 1fr; gap: 20px; align-items: center;
+      padding: 28px; border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+    }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 9999px; position: relative; overflow: hidden;
+      display: grid; place-items: center; font-weight: 700; font-size: 32px; color: #fff;
+      background: conic-gradient(from 220deg, #4f46e5, #06b6d4, #10b981, #f59e0b, #ef4444, #4f46e5);
+      filter: saturate(1.1);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .title { margin: 0; font-size: clamp(22px, 2.2vw + 12px, 34px); }
+    .subtitle { margin: 6px 0 0; color: var(--muted); }
+
+    main { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; padding: 24px; }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
+      header { grid-template-columns: 84px 1fr; }
+      .avatar { width: 72px; height: 72px; font-size: 26px; }
+    }
+
+    section { background: transparent; border-radius: 12px; }
+    h2 { font-size: 18px; margin: 0 0 10px; }
+    p { margin: 0 0 10px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .chip {
+      padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--chip); font-size: 13px;
+    }
+
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .item { border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .item a { color: var(--accent); text-decoration: none; }
+    .item a:hover { text-decoration: underline; }
+
+    .cta { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+    .btn {
+      appearance: none; border: 1px solid var(--border); background: var(--card);
+      padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600; text-decoration: none; color: var(--text);
+      transition: transform .04s ease, box-shadow .2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,.04);
+    }
+    .btn.primary { background: var(--accent); color: #fff; border-color: transparent; }
+    .btn:active { transform: translateY(1px); }
+
+    footer { padding: 20px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    .meta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block; }
+
+    /* 편집 가이드 표시용 (필요 없으면 삭제) */
+    .guide { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <!-- 사진을 쓰고 싶다면 아래 img의 display: block 으로 변경하고 src에 경로/URL을 넣으세요. -->
+        <div class="avatar" aria-hidden="true">
+          <img src="" alt="프로필 이미지" />
+          <span>JD</span>
+        </div>
+        <div>
+          <h1 class="title">홍길동</h1>
+          <p class="subtitle">백엔드 개발자 · 자동화/인프라 좋아함</p>
+          <div class="cta">
+            <a class="btn primary" href="#" target="_blank" rel="noreferrer">이력서 열기</a>
+            <a class="btn" href="mailto:hello@example.com">이메일</a>
+            <a class="btn" href="#projects">프로젝트</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <h2>소개</h2>
+          <p>안녕하세요! 문제를 깔끔하게 해결하는 걸 좋아하는 개발자 <strong>홍길동</strong>입니다. 
+            주로 Java, Docker, Kubernetes 같은 기술을 사용해서 안정적인 서비스를 만드는 데 관심이 있어요.</p>
+          <p class="guide">• 위 텍스트를 본인 소개로 바꾸세요.</p>
+
+          <h2 style="margin-top:18px">기술 스택</h2>
+          <div class="chips">
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">GitLab CI/CD</span>
+          </div>
+          <p class="guide">• 필요/불필요 기술을 추가/삭제 하세요.</p>
+
+          <h2 style="margin-top:18px">연락처</h2>
+          <ul class="list">
+            <li class="item">📧 hello@example.com</li>
+            <li class="item">🌏 서울, 대한민국</li>
+            <li class="item">🔗 <a href="https://github.com/your-id" target="_blank" rel="noreferrer">GitHub</a> · 
+              <a href="https://www.linkedin.com/in/your-id" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          </ul>
+          <p class="guide">• 이메일/위치/링크를 본인 정보로 수정하세요.</p>
+        </section>
+
+        <section id="projects">
+          <h2>프로젝트</h2>
+          <ul class="list">
+            <li class="item">
+              <strong>Guestbook</strong> — Java + MySQL로 만든 방명록 웹앱.
+              <div><a href="#" target="_blank" rel="noreferrer">소스 코드</a> · <a href="#" target="_blank" rel="noreferrer">데모</a></div>
+            </li>
+            <li class="item">
+              <strong>DevOps Toolkit</strong> — Jenkins·Harbor·Argo로 자동 배포 파이프라인.
+              <div><a href="#" target="_blank" rel="noreferrer">문서</a></div>
+            </li>
+            <li class="item">
+              <strong>HomeLab</strong> — KVM/Ansible로 IaC 실습 환경 구성.
+            </li>
+          </ul>
+          <p class="guide">• 항목을 본인 프로젝트로 바꾸세요.</p>
+
+          <h2 style="margin-top:18px">경력/활동</h2>
+          <ul class="list">
+            <li class="item"><strong>회사 A</strong> — 백엔드 개발자 (2022–현재) · 주문/결제 모듈 개발</li>
+            <li class="item"><strong>오픈소스 기여</strong> — 소소한 PR과 이슈 관리</li>
+          </ul>
+          <p class="guide">• 연도/역할을 업데이트 하세요.</p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="meta">
+          <span><span class="dot"></span> 마지막 업데이트: <time>2025-09-11</time></span>
+          <span>© <span id="y"></span> 홍길동</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // 이니셜 자동 채우기 (이름의 첫 글자 두개)
+    (function(){
+      const name = document.querySelector('.title')?.textContent?.trim() || '';
+      const initials = name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
+      const holder = document.querySelector('.avatar span');
+      if (initials && holder) holder.textContent = initials;
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
